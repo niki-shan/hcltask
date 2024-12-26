@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from './shared/service/product.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  totalcount = 0
   title = 'hcltask';
+
+
+  constructor(private _prodService : ProductService){
+    this._prodService.cartSub$.asObservable().subscribe(res=>{
+       this.totalcount = res
+       console.log(res);
+       
+    })
+
+
+
+  
+
+  }
+
+
+
+  
+
 }

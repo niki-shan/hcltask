@@ -1,0 +1,28 @@
+
+
+
+ <table class="table table-bordered" >
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td> total Discount </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let arr of singleData">
+            <td>{{arr.title}}</td>
+            <td>{{arr.price}}</td>
+            <td>{{arr.discountedTotal}}</td>
+            <td><button class="btn btn-primary" [routerLink]="['deliver', arr.id]">Buy</button>
+                  <button class="btn btn-danger ml-2"> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+ </table>
+
+ <ng-container *ngIf="!singleData">
+    No Data to Show
+ </ng-container>
+
+
